@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Account.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Sprint_4</a> &gt; <a href="index.source.html" class="el_package">ru.practicum</a> &gt; <span class="el_source">Account.java</span></div><h1>Account.java</h1><pre class="source lang-java linenums">package ru.practicum;
+
+public class Account {
+    private final String name;
+
+<span class="fc" id="L6">    public Account(String name) {</span>
+<span class="fc" id="L7">        this.name = name;</span>
+<span class="fc" id="L8">    }</span>
+
+    public boolean checkNameToEmboss() {
+
+<span class="fc" id="L12">        final int MIN_NUMBER_OF_CHARS_IN_NAME = 3;</span>
+<span class="fc" id="L13">        final int MAX_NUMBER_OF_CHARS_IN_NAME = 19;</span>
+<span class="fc bfc" id="L14" title="All 4 branches covered.">        boolean isValidStringLength = (name.length() &gt;= MIN_NUMBER_OF_CHARS_IN_NAME) &amp;&amp; (name.length() &lt;= MAX_NUMBER_OF_CHARS_IN_NAME);</span>
+<span class="fc bfc" id="L15" title="All 4 branches covered.">        boolean isInvalidSpacePlacement = name.startsWith(&quot; &quot;) || name.endsWith(&quot; &quot;);</span>
+<span class="fc" id="L16">        int spaceCount = name.length() - name.replace(&quot; &quot;, &quot;&quot;).length();</span>
+
+<span class="fc bfc" id="L18" title="All 6 branches covered.">        if ((isValidStringLength) &amp;&amp; (!isInvalidSpacePlacement) &amp;&amp; (spaceCount == 1)) {</span>
+<span class="fc" id="L19">            return true;</span>
+        } else {
+<span class="fc" id="L21">            return false;</span>
+        }
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
