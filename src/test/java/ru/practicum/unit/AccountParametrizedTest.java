@@ -34,7 +34,8 @@ public class AccountParametrizedTest {
                     {"Тимоти Шаламе ", false},
                     {" Тимоти Шаламе ", false},
                     {" ТимотиШаламе", false},
-                    {"ТимотиШаламе ", false}
+                    {"ТимотиШаламе ", false},
+                    {null, false},
         };
     }
 

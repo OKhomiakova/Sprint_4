@@ -9,17 +9,24 @@ public class Account {
 
     public boolean checkNameToEmboss() {
 
-<span class="fc" id="L12">        final int MIN_NUMBER_OF_CHARS_IN_NAME = 3;</span>
-<span class="fc" id="L13">        final int MAX_NUMBER_OF_CHARS_IN_NAME = 19;</span>
-<span class="fc bfc" id="L14" title="All 4 branches covered.">        boolean isValidStringLength = (name.length() &gt;= MIN_NUMBER_OF_CHARS_IN_NAME) &amp;&amp; (name.length() &lt;= MAX_NUMBER_OF_CHARS_IN_NAME);</span>
-<span class="fc bfc" id="L15" title="All 4 branches covered.">        boolean isInvalidSpacePlacement = name.startsWith(&quot; &quot;) || name.endsWith(&quot; &quot;);</span>
-<span class="fc" id="L16">        int spaceCount = name.length() - name.replace(&quot; &quot;, &quot;&quot;).length();</span>
+//        старый вариант без регулярок
+//        final int MIN_NUMBER_OF_CHARS_IN_NAME = 3;
+//        final int MAX_NUMBER_OF_CHARS_IN_NAME = 19;
+//        boolean isValidStringLength = (name.length() &gt;= MIN_NUMBER_OF_CHARS_IN_NAME) &amp;&amp; (name.length() &lt;= MAX_NUMBER_OF_CHARS_IN_NAME);
+//        boolean isInvalidSpacePlacement = name.startsWith(&quot; &quot;) || name.endsWith(&quot; &quot;);
+//        int spaceCount = name.length() - name.replace(&quot; &quot;, &quot;&quot;).length();
+//
+//        if ((name != null) &amp;&amp; (isValidStringLength) &amp;&amp; (!isInvalidSpacePlacement) &amp;&amp; (spaceCount == 1)) {
+//            return true;
+//        } if else {
+//            return false;
+//        }
 
-<span class="fc bfc" id="L18" title="All 6 branches covered.">        if ((isValidStringLength) &amp;&amp; (!isInvalidSpacePlacement) &amp;&amp; (spaceCount == 1)) {</span>
-<span class="fc" id="L19">            return true;</span>
-        } else {
-<span class="fc" id="L21">            return false;</span>
+        // проверка через регулярку
+<span class="fc bfc" id="L26" title="All 2 branches covered.">        if (this.name == null) {</span>
+<span class="fc" id="L27">            return false;</span>
         }
+<span class="fc" id="L29">        return name.matches(&quot;(?=.{3,19}$)[а-яА-Яa-zA-Z0-9]+ [а-яА-Яa-zA-Z0-9]+&quot;);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
